@@ -1,14 +1,14 @@
-import React from "react";
-import { View, Text } from "react-native";
+import { Navigation } from "react-native-navigation";
+import LandingScreen from "./LandingScreen";
 
-class LandingScreen extends React.PureComponent {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>THIS IS THE LANDING SCREEN</Text>
-      </View>
-    );
-  }
-}
+export const registerScreens = () => {
+  Navigation.registerComponent(`screen.Landing`, () => LandingScreen);
+};
 
-export default LandingScreen;
+export const registerScreenVisibilityListener = () => {
+  Navigation.events().registerComponentDidAppearListener(
+    ({ componentName }) => {
+      console.log(`<-------- Screen ${componentName} has been loaded ------>`);
+    }
+  );
+};

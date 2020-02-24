@@ -1,14 +1,3 @@
-import { Navigation } from "react-native-navigation";
-import LandingScreen from "./app/Screens";
+import App from "./app/App";
 
-Navigation.registerComponent(`LandingScreen`, () => LandingScreen);
-
-Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      component: {
-        name: "LandingScreen"
-      }
-    }
-  });
-});
+const app = new App();
